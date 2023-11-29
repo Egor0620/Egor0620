@@ -32,7 +32,7 @@ app.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-app.listen(PORT, () => {
+app.listen(8888, () => {
   console.log(`app is listening to PORT ${PORT}`);
 });
 

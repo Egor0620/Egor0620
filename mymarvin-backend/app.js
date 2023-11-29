@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const PORT = process.env.PORT;
+const PORT = 8005;
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");

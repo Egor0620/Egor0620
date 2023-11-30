@@ -212,7 +212,7 @@ const createMessage = async (req, res) => {
       }
     }
   } catch (error) {
-    console.log(">> err : ", error);
+    console.log("error : ", error);
     res.status(400).json({
       message:
         error.response && error.response.data && error.response.data.error

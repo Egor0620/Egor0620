@@ -242,7 +242,7 @@ const getMessage = async (req, res) => {
       }
     }
   } catch (error) {
-    console.log(">> err 11: ", error);
+    console.log("err 11: ", error);
     res.status(400).json({
       message: "Failed get Message",
     });

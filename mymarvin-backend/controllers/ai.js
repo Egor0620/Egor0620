@@ -91,9 +91,8 @@ const createMessage = async (req, res) => {
         .defaults({ encoding: null })
         .get(imgURL, function (err, ress, body) {
           finalImage = body;
-          uploadParams.Key = `generated_images/${
-            use._id
-          }_${Date.now().toString()}.png`;
+          uploadParams.Key = `generated_images/${use._id
+            }_${Date.now().toString()}.png`;
           uploadParams.Body = finalImage;
 
           const params = uploadParams;
@@ -227,9 +226,10 @@ const createMessage = async (req, res) => {
 const getMessage = async (req, res) => {
   try {
     const { id } = req.body;
-    const existMessage = await Message.findOne({
+    let existMessage = await Message.findOne({
       _id: id,
     });
+    existMessage = { ...existMessage, response: { id: existMessage.response._id, text: existMessage.response.choices[0].text } }
 
     if (existMessage) {
       res.status(200).json(existMessage);
@@ -340,7 +340,7 @@ const getMessagesOfRoom = async (req, res) => {
     console.log(from, to);
     // totalMessages.reverse();
 
-    const messages = totalMessages.slice(
+    let messages = totalMessages.slice(
       // to < totalMessages.length ? to : totalMessages.length,
       to > 0 ? to : 0,
       from

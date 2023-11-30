@@ -344,7 +344,7 @@ const getMessagesOfRoom = async (req, res) => {
       // to < totalMessages.length ? to : totalMessages.length,
       to > 0 ? to : 0,
       from
-    ).map(msg => ({ ...msg, response: { ...msg.response, text: msg.response.choices[0].text } }));
+    );//.map(msg => ({ ...msg, response: { ...msg.response, text: msg.response.choices[0].text } }));
     console.log("messages: ", messages);
     // messages.reverse();
     res.status(200).json({
